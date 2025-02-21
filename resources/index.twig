@@ -1,0 +1,11 @@
+{% extends "App.twig" %}
+ {% block content %}       
+    <h1>Index</h1>
+    <h2>Test</h2>
+    {% for key, value in result %}
+    {{ result.value }}
+    <p>
+        <span> {{ key }}: {{ value }} </span>
+    </p>
+    {% endfor %}
+{% endblock %}

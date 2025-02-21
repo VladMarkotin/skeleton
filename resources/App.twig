@@ -1,0 +1,13 @@
+<!DOCTYPE>
+<html>
+    {% block head %}
+    <head>
+        <title>{{title}} </title>
+    </head>
+    {% endblock %}
+    <body>
+       <div class="content">
+        {{ block('content') }}
+        </div>
+    </body>
+</html>
