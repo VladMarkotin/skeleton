@@ -25,12 +25,12 @@ class IndexController extends Controller
         //$result = DB::query("Select * from `test` ", $this->container->get(DBCollection::class));
         $mapper = new TestMapper($this->storage);
         $row = $mapper->findById(1);
-        $rows = $mapper->all();
+        //$rows = $mapper->all();
         //$testModel = TestModel::fromState($mapper);
-        // var_dump($rows);
+        //var_dump($row);
         //     die;
         
-        return View::render('index', ['title' => 'Index Page 2', 'result' => $rows]); //$row->toArray()
+        return View::render('index', ['title' => 'Index Page 2', 'result' => $row->toArray()]); 
     }
 
     private function initStorage()
