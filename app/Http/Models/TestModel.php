@@ -15,7 +15,7 @@ class TestModel extends Model
     public static function fromState( $state): TestModel
     {
         // validate state before accessing keys!
-        //die(var_dump($state));
+       
         return new self(
             $state['id'],
             $state['name']
