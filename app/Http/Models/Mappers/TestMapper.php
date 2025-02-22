@@ -22,8 +22,13 @@ class TestMapper
      */
     public function findById(int $id)
     {
-        $result = $this->mapper->find($id);
-        //die(var_dump($result));
+        if (!$id) {
+            $result = $this->mapper->find($id + 1);
+           
+        } else {
+            $result = $this->mapper->find($id);
+        }
+
         if ($result === null) {
             throw new \InvalidArgumentException("User #$id not found");
         }
@@ -35,14 +40,15 @@ class TestMapper
     {
         $collection = [];
         $result = $this->mapper->getData();
-        //die(var_dump($result));
+
         if ($result === null) {
             throw new \InvalidArgumentException("User # not found");
         }
-
+        
         foreach ($result as $k => $v) {
             $collection[$k] = $this->mapRowToId($v);
         }
+        //die(var_dump($collection[0]->id));
 
         return $collection;
     }

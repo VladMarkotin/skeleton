@@ -2,6 +2,7 @@
 namespace App\Kernel\View;
 
 use \Twig\Loader\ArrayLoader;
+use \Twig\TwigTest;
 
 class View
 {
@@ -16,5 +17,9 @@ class View
     {
         $loader = new \Twig\Loader\FilesystemLoader($_ENV['TEMPLATE_PATH']);
         self::$twig = new \Twig\Environment($loader);
+
+        self::$twig->addTest(new TwigTest('array', function ($value) {
+            return is_array($value);
+        }));
     } 
 }

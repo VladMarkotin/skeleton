@@ -20,7 +20,7 @@ class DB
             return $collector->collect($result)->get();
         }
         
-        return self::$dbh->query($query);
+        return $result;
     }
 
     public static function exec(string $query)

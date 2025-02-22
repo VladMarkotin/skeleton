@@ -3,7 +3,9 @@ namespace App\Kernel\DI;
 
 
 use App\Kernel\Init\InitClass;
+use App\Kernel\DB\QueryBuilder\Builder;
 use App\Facades\Collections\DBCollection;
+use App\Kernel\DB\DBClass;
 
 class Container
 {
@@ -11,13 +13,16 @@ class Container
 
     public function __construct()
     {
-        // Ключи в этом массиве - строковые ID объектов
-        // Значения - функции, строящие нужный объект
         $this->objects = [
             
             InitClass::class => function (){ return new InitClass();},
             DBCollection::class => function () {return new DBCollection();},
-            
+            Builder::class => function () {
+                return new Builder(
+                    $this->get(DBCollection::class)
+                );
+            },
+            DBClass::class => function () {return DBClass::getInstance();},
         ];
     }
 
