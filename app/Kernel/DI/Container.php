@@ -6,6 +6,7 @@ use App\Kernel\Init\InitClass;
 use App\Kernel\DB\QueryBuilder\Builder;
 use App\Facades\Collections\DBCollection;
 use App\Kernel\DB\DBClass;
+use App\Facades\Request\Request;
 
 class Container
 {
@@ -23,6 +24,7 @@ class Container
                 );
             },
             DBClass::class => function () {return DBClass::getInstance();},
+            Request::class => function () {return new Request();},
         ];
     }
 

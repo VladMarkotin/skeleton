@@ -7,3 +7,5 @@ use App\Http\Controllers\TestController;
 Router::get('/', [IndexController::class, 'index']);
 
 Router::get('/test', [TestController::class, 'index']);
+
+Router::get('/test2/{q}', [TestController::class, 'test2']);

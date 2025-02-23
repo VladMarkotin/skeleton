@@ -2,6 +2,9 @@
 namespace App\Kernel\Router;
 
 
+use App\Facades\Request\Request;
+use App\Kernel\DI\Container;
+
 class RouteDispatcher
 {
     private $routeConfiguration;
@@ -35,10 +38,12 @@ class RouteDispatcher
 
     private function render()
     {
+
         $className = $this->routeConfiguration->controller;
         $action = $this->routeConfiguration->action;
 
-        print(new $className)->$action(...($this->requestParamMap));
+        $container = new Container;
+        print(new $className)->$action($container->get(Request::class), ...($this->requestParamMap));
         exit;
     }
 
