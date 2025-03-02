@@ -11,11 +11,15 @@ class Request extends SymfonyRequest
     private $getData = [];
     public  InputBag $request;
 
-    public function getDataAsArray()
+    public function getDataAsArray() : array
     {
         $content = $this->getContent();
         parse_str($content, $this->postData);
+        //dd($this->postData['email']);
+        if ($this->postData) {
+            return $this->postData;
+        }
 
-        return $this->postData;
+        return [];
     }
 }

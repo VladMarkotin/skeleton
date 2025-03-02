@@ -6,7 +6,7 @@ trait Conditions
 {
     public function where($arg1, $o, $arg2)
     {
-        $this->query .=  " WHERE $arg1 $o $arg2 ";
+        $this->query .=  " WHERE $arg1 $o ".$this->handleString($arg2);
 
         return $this;
     }

@@ -7,6 +7,8 @@ use App\Kernel\DB\QueryBuilder\Builder;
 use App\Facades\Collections\DBCollection;
 use App\Kernel\DB\DBClass;
 use App\Facades\Request\Request;
+use App\Facades\Auth;
+use App\Kernel\Auth\AuthClass;
 
 class Container
 {
@@ -25,6 +27,10 @@ class Container
             },
             DBClass::class => function () {return DBClass::getInstance();},
             Request::class => function () {return new Request();},
+            AuthClass::class => function () {return new AuthClass();},
+            Auth::class => function () {
+                return new Auth($this->get(AuthClass::class));
+            },
         ];
     }
 

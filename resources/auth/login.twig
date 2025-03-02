@@ -1,0 +1,62 @@
+{% extends 'App.twig' %}
+
+{% block content %}
+
+                <div class="form-element">
+                  <div class="col-md-12 padding-0">
+                    <div class="col-md-8">
+                      <div class="panel form-element-padding">
+                        <div class="panel-heading">
+                         <h4>Auth page:</h4>
+                        </div>
+                        <form method="post" action="/auth">
+                         <div class="panel-body" style="padding-bottom:30px;">
+                          <div class="col-md-12">
+                            <div class="form-group"><label class="col-sm-2 control-label text-right">Email</label>
+                              <div class="col-sm-10"><input type="text" name="email" class="form-control" placeholder="Email"></div>
+                            </div>
+                            <div class="form-group"><label class="col-sm-2 control-label text-right">Password</label>
+                              <div class="col-sm-10"><input type="text" name="pass" class="form-control" placeholder="Password"></div>
+                            </div>
+                            <div class="col-md-6" style="margin-top:5px;">
+                                   <button class="btn ripple-infinite btn-outline btn-primary">
+                                    <div>
+                                      <span>Log In</span>
+                                    </div>
+                                  </button>
+                              </div>
+                          </div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+
+{% endblock %}
+
+{% block scripts %}
+ <!-- start: Javascript -->
+      <script src="asset/js/jquery.min.js"></script>
+      <script src="asset/js/jquery.ui.min.js"></script>
+      <script src="asset/js/bootstrap.min.js"></script>
+
+      <script src="asset/js/plugins/moment.min.js"></script>
+      <script src="asset/js/plugins/icheck.min.js"></script>
+
+      <!-- custom -->
+      <script src="asset/js/main.js"></script>
+      <script type="text/javascript">
+       $(document).ready(function(){
+         $('input').iCheck({
+          checkboxClass: 'icheckbox_flat-aero',
+          radioClass: 'iradio_flat-aero'
+        });
+       });
+     </script>
+     <!-- end: Javascript -->
+{% endblock %}

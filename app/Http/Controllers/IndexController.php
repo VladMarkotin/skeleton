@@ -10,6 +10,7 @@ use App\Kernel\View\View;
 use App\Kernel\DataMapper\DataMapper;
 use App\Http\Models\Mappers\TestMapper;
 use App\Http\Models\TestModel;
+use App\Facades\Auth\Auth;
 
 class IndexController extends Controller
 {

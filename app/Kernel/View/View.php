@@ -18,6 +18,8 @@ class View
         $loader = new \Twig\Loader\FilesystemLoader($_ENV['TEMPLATE_PATH']);
         self::$twig = new \Twig\Environment($loader);
 
+        self::$twig->addExtension(new \App\Kernel\View\TwigExtensions\AuthExtension());
+
         self::$twig->addTest(new TwigTest('array', function ($value) {
             return is_array($value);
         }));
